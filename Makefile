@@ -6,7 +6,7 @@
 #    By: darkwater <marvin@42.fr>                   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/15 19:03:04 by darkwater         #+#    #+#              #
-#    Updated: 2023/06/15 19:11:30 by darkwater        ###   ########.fr        #
+#    Updated: 2023/07/12 15:26:25 by darkwater        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ HEADER			= ./includes/
 
 CC				= cc
 
-CFLAGS			= -Wall -Werror -Wextra
+CFLAGS			= -g -Wall -Werror -Wextra
 
 all: ${NAME}
 
