@@ -6,7 +6,7 @@
 /*   By: darkwater <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 04:50:08 by darkwater         #+#    #+#             */
-/*   Updated: 2023/06/17 06:09:00 by darkwater        ###   ########.fr       */
+/*   Updated: 2023/07/20 02:00:05 by lstephen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	get_line_amnt(char *file_name)
 	int				count;
 	int				fd;
 
+	count = 0;
 	fd = open(file_name, O_RDONLY);
 	while (read(fd, &temp, 1) != 0)
 	{
