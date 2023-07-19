@@ -6,23 +6,13 @@
 /*   By: darkwater <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 17:57:29 by darkwater         #+#    #+#             */
-/*   Updated: 2023/07/12 15:09:03 by darkwater        ###   ########.fr       */
+/*   Updated: 2023/07/19 18:44:20 by darkwater        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "functions.h"
 #include <stdio.h>
 #include <fcntl.h>
-
-/*
-char	*prn_guess(void)
-{
-	char	*best_guess[5];
-	int		i;
-
-	i = 0;
-}
-*/
 
 void	ft_letter_frequency(char *valid_guess)
 {
@@ -55,7 +45,8 @@ void	ft_letter_frequency(char *valid_guess)
 		}
 		i++;
 	}
-	i = 0;	
+	i = 0;
+	printf("\nThe most frequently occurring letters: ");	
 	while (count < 5)
 	{
 		while (i < 26)
@@ -73,14 +64,15 @@ void	ft_letter_frequency(char *valid_guess)
 		}
 		i = 0;
 		max--;
-		if (max == 0)
+		if (max == 1)
 		{
 			break ;
 		}
 	}
+	printf("\n");
 }
 
-void	check_contains(unsigned char **word_list, char *contains, int pos, char *valid, int step)
+void	check_contains(unsigned char **word_list, char *contains, int pos, char *valid, unsigned int *step)
 {
 	int		i;
 	int		j;
@@ -110,14 +102,14 @@ void	check_contains(unsigned char **word_list, char *contains, int pos, char *va
 	j = 0;
 	while (j < 5)
 	{
-		valid[step] = word_list[pos][j];
+		valid[*step] = word_list[pos][j];
 		j++;
-		step++;
+		*step = *step + 1;
 	}
 }
 
 void	invalid_rmv(unsigned char **word_list, char *invalid,
-int pos, char *contains, char *valid, int step)
+int pos, char *contains, char *valid, unsigned int *step)
 {
 	int	i;
 	int	j;
@@ -145,8 +137,8 @@ char *contains, char *invalid)
 {
 	int				i;
 	int				j;
-	int				step;
-	char	valid[10000];
+	unsigned int	step;
+	char	valid[1000000];
 
 	i = 0;
 	step = 0;
@@ -165,9 +157,8 @@ char *contains, char *invalid)
 			j++;
 		}
 		if (j == 5)
-			invalid_rmv(word_list, invalid, i, contains, valid, step);
+			invalid_rmv(word_list, invalid, i, contains, valid, &step);
 		i++;
 	}
 	ft_letter_frequency(valid);
-	//printf("%s\n", prn_guess());
 }
