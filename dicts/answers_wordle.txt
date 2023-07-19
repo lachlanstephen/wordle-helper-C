@@ -1738,6 +1738,7 @@ shout
 shove
 shown
 showy
+shred
 shrew
 shrub
 shrug

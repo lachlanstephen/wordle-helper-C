@@ -6,7 +6,7 @@
 #    By: darkwater <marvin@42.fr>                   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/15 19:03:04 by darkwater         #+#    #+#              #
-#    Updated: 2023/07/12 15:26:25 by darkwater        ###   ########.fr        #
+#    Updated: 2023/07/19 21:57:36 by darkwater        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ CFLAGS			= -g -Wall -Werror -Wextra
 
 all: ${NAME}
 
-.c.o: .c
+.c.o:
 	${CC} ${CFLAGS} -c -I ${HEADER} $< -o ${<:.c=.o}
 
 ${NAME}: ${OBJS}

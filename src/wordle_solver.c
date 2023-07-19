@@ -6,7 +6,7 @@
 /*   By: darkwater <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 17:57:29 by darkwater         #+#    #+#             */
-/*   Updated: 2023/07/19 18:44:20 by darkwater        ###   ########.fr       */
+/*   Updated: 2023/07/19 22:22:54 by darkwater        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 #include <stdio.h>
 #include <fcntl.h>
 
-void	ft_letter_frequency(char *valid_guess)
+void	ft_letter_frequency(char *valid_guess, char *str, char *contains)
 {
 	int	i;
+	int	j;
 	int	max;
 	int	count;
 	int	arr[26];
+	char	unique[5] = {0, 0, 0, 0, 0};
 
 	i = 0;
 	max = 0;
@@ -57,17 +59,35 @@ void	ft_letter_frequency(char *valid_guess)
 			}
 			if (arr[i] == max)
 			{
-				count++;
 				printf("%c", i + 'a');
+				j = 0;
+				while (str[j] != 0)
+				{
+					if (i + 'a' == str[j] || i + 'a' == contains[j])
+					{
+						break ;
+					}
+					else if (j == 4)
+					{
+						unique[count] = i + 'a';
+						count++;
+					}
+					j++;
+				}
 			}
 			i++;
 		}
 		i = 0;
 		max--;
-		if (max == 1)
+		if (max == 0)
 		{
 			break ;
 		}
+	}
+	printf("\n\nMost frequently occurring letters not already checked: ");
+	for (int i = 0; i < 5; i++)
+	{
+		printf("%c", unique[i]);
 	}
 	printf("\n");
 }
@@ -138,7 +158,7 @@ char *contains, char *invalid)
 	int				i;
 	int				j;
 	unsigned int	step;
-	char	valid[1000000];
+	char	valid[1500000];
 
 	i = 0;
 	step = 0;
@@ -160,5 +180,5 @@ char *contains, char *invalid)
 			invalid_rmv(word_list, invalid, i, contains, valid, &step);
 		i++;
 	}
-	ft_letter_frequency(valid);
+	ft_letter_frequency(valid, str, contains);
 }
