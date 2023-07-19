@@ -21,7 +21,7 @@
 <li>Letters not contained in answer ('sl')</li>
 </ol>
 
-<p>Example: "./wordle-solver ./dicts/answers\_wordle.txt '..a.e' 't' 'sl'"
+<p>Example: ./wordle-solver ./dicts/answers\_wordle.txt '..a.e' 't' 'sl'
 
 <p>The above example would be the command run after the guess 'slate' was input into Wordle, when the answer is 'trace'</p>
 
