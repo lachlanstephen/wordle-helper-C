@@ -6,7 +6,7 @@
 /*   By: darkwater <marvin@42.fr>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 17:57:29 by darkwater         #+#    #+#             */
-/*   Updated: 2023/07/19 22:22:54 by darkwater        ###   ########.fr       */
+/*   Updated: 2023/11/13 23:22:29 by darkwater        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_letter_frequency(char *valid_guess, char *str, char *contains)
 		i++;
 	}
 	i = 0;
-	printf("\nThe most frequently occurring letters: ");	
+	printf("\nThe most frequently occurring letters: ");
 	while (count < 5)
 	{
 		while (i < 26)
@@ -94,9 +94,9 @@ void	ft_letter_frequency(char *valid_guess, char *str, char *contains)
 
 void	check_contains(unsigned char **word_list, char *contains, int pos, char *valid, unsigned int *step)
 {
-	int		i;
-	int		j;
-	bool	exists;
+	int					i;
+	int					j;
+	bool				exists;
 
 	i = 0;
 	j = 0;
@@ -158,7 +158,7 @@ char *contains, char *invalid)
 	int				i;
 	int				j;
 	unsigned int	step;
-	char	valid[1500000];
+	char			valid[1500000];
 
 	i = 0;
 	step = 0;
@@ -180,5 +180,6 @@ char *contains, char *invalid)
 			invalid_rmv(word_list, invalid, i, contains, valid, &step);
 		i++;
 	}
+	printf("\nNumber of potential solutions: %u\n", step/5);
 	ft_letter_frequency(valid, str, contains);
 }
